@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from '../src/Pages/App';
 import SelectUser from './Pages/SelectUser/SelectUser';
-import Error404 from './Pages/Error/Error'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import reportWebVitals from './reportWebVitals';
 import HorizontalNav from './Components/Navigations/HorizontalNav'
@@ -19,7 +18,6 @@ root.render(
       <Routes>
         <Route path='/' element={<SelectUser/>} />
         <Route path="/user/:id" element={<App />} />
-        <Route path="*" element={<Error404 />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

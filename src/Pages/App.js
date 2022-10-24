@@ -8,7 +8,6 @@ import RadialCharts from '../Components/Charts/RadialChart';
 import useFetch from '../utils/fetchAPI';
 import EnergyIndex from '../Components/EnergyIndex/energyIndex';
 import Loader from '../Components/Loader/Loader'
-import Error404 from './Error/Error';
 
 const App = () => {
 
@@ -28,7 +27,7 @@ const App = () => {
   console.log(averageData, "<==averageData")
   console.log(performanceData, '<==performanceData')
   console.log (dataIsLoading, "dataIsLoading");
-    if (!dataIsLoading) {
+    if (!dataIsLoading && !dataNotFound) {
       return (
         <div className="App">
           <section className='welcome'>
@@ -69,7 +68,10 @@ const App = () => {
     }
     else if (dataNotFound) {
       return (
-        <p>Désolé nous n'avons pas pu récupérer vos données, veuillez contacter l'administrateur</p>
+        <div className="App">
+          <h1>Désolé nous n'avons pas pu récupérer vos données, veuillez contacter un administrateur!</h1>
+        </div>
+        
       )
     } else if (dataIsLoading) {
       return (
