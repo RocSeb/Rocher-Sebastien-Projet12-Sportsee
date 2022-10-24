@@ -1,0 +1,29 @@
+.user-container {
+    display: flex;
+    width: calc(100vw - 140px);
+    height: calc(100vh - 140px);
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.user12 {
+    width: 200px;
+    height: 200px;
+}
+
+.user18 {
+    width: 200px;
+    height: 200px;
+}
+
+.user-container a {
+    display: block;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    text-decoration: none;
+}
+.user-container img {
+    width: 200px;
+    height: 200px;
+}

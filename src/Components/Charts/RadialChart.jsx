@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 
 
 const RadialCharts = ({data}) => {
-  console.log(data, "<== data radialChart");
-
   const dataConverted = [
     {
       score: data * 100,

@@ -7,70 +7,77 @@ import RadarCharts from '../Components/Charts/RadarChart';
 import RadialCharts from '../Components/Charts/RadialChart';
 import useFetch from '../utils/fetchAPI';
 import EnergyIndex from '../Components/EnergyIndex/energyIndex';
+import Loader from '../Components/Loader/Loader'
+import Error404 from './Error/Error';
 
 const App = () => {
 
   const { id: userId } = useParams(':id')
+
   const {
-    data: user,
-    isLoading: userIsLoading,
-    error: userNotFound,
-  } = useFetch('http://localhost:3000/user/' + userId)
+    data: data,
+    activityData: activityData,
+    averageData: averageData,
+    performanceData: performanceData,
+    isLoading: dataIsLoading,
+    error: dataNotFound,
+  } = useFetch(userId);
 
-  const { data: activity, isLoading: activityIsLoading } = useFetch(
-    'http://localhost:3000/user/' + userId + '/activity'
-  )
-
-  const { data: averageSessions, isLoading: averageSessionsIsLoading } =
-    useFetch('http://localhost:3000/user/' + userId + '/average-sessions')
-
-  const { data: performance, isLoading: performanceIsLoading } = useFetch(
-    'http://localhost:3000/user/' + userId + '/performance'
-  )
-  
-  
- //console.log(user,"<== user")
-
-  if (
-    !userIsLoading &&
-    !activityIsLoading &&
-    !averageSessionsIsLoading &&
-    !performanceIsLoading
-  ){
-    return (
+  console.log(data, '<==data');
+  console.log(activityData, '<==activityData')
+  console.log(averageData, "<==averageData")
+  console.log(performanceData, '<==performanceData')
+  console.log (dataIsLoading, "dataIsLoading");
+    if (!dataIsLoading) {
+      return (
+        <div className="App">
+          <section className='welcome'>
+            <div className='welcome_name'>
+              <div>Bonjour </div>
+              <div className='red'>{data.userInfos.firstName}</div>
+            </div>
+            
+            <span>Félicitation ! Vous avez réalisé vos objectifs hier 👏</span>
+          </section>
+          <section className='info-container'>
+            <div className='charts-container'>
+              <div className='bar-chart bg-chart'>
+                <BarCharts data={activityData}/>
+              </div>
+              <div className='chart-wrap'>
+                <div className='chart'>
+                  <LineCharts data={averageData}/>
+                </div>
+                <div className='chart'>
+                  <RadarCharts data={performanceData}/>
+                </div>
+                
+                <div className='chart bg-chart'>
+                  <RadialCharts data={data.todayScore || data.score}/>
+                </div>     
+              </div>
+            </div>
+            <div className='nutrients-container'>
+              {Object.entries(data.keyData || data[userId].keyData).map(([key, value, index]) => (
+                <EnergyIndex value={value} dataLabel={key} key={key + index} />
+              ))}
+            </div>
+          </section>
+          
+        </div>
+      );
+    }
+    else if (dataNotFound) {
+      return (
+        <p>Désolé nous n'avons pas pu récupérer vos données, veuillez contacter l'administrateur</p>
+      )
+    } else if (dataIsLoading) {
+      return (
       <div className="App">
-        <section className='welcome'>
-          <h1>Bonjour {user.userInfos.firstName}</h1>
-          <span>Félicitation ! Vous avez réalisé vos objectifs hier 👏</span>
-        </section>
-        <section className='info-container'>
-          <div className='charts-container'>
-            <div className='bar-chart bg-chart'>
-              <BarCharts data={activity} />
-            </div>
-            <div className='chart-wrap'>
-              <div className='chart'>
-                <LineCharts data={averageSessions} />
-              </div>
-              <div className='chart'>
-                <RadarCharts data={performance} />
-              </div>
-              
-              <div className='chart bg-chart'>
-                <RadialCharts data={user.todayScore || user.score}/>
-              </div>     
-            </div>
-          </div>
-          <div className='nutrients-container'>
-            {Object.entries(user.keyData).map(([key, value, index]) => (
-              <EnergyIndex value={value} dataLabel={key} key={key + index} />
-            ))}
-          </div>
-        </section>
-        
+        <Loader />
       </div>
-    );
+      )
+    }
   }
-}
 
 export default App;

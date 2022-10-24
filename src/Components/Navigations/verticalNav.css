@@ -1,9 +1,7 @@
-*{
+.category-nav {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-.category-nav {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -29,4 +27,9 @@
     font-size: 0.8rem;
     transform: rotate(-90deg);
     z-index: 3;
+}
+.category {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

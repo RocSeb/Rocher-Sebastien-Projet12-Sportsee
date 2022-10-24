@@ -2,13 +2,24 @@
   font-family: 'Roboto', sans-serif;;
 }
 .App {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   height: 100vh;
-  width: 100vw;
+  width: calc(100vw - 140px);
   padding-left: 140px;
   padding-top: 140px;
 }
-.welcome .h1 {
-  font-size: 3rem;
+.welcome .welcome_name {
+  display: flex;
+  flex-direction: row;
+}
+.welcome div{
+  font-size: 2.0rem;
+}
+.welcome .red {
+  color: red;
+  margin-left: 10px;
 }
 .welcome span {
   font-size: .8rem;
@@ -17,15 +28,16 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: calc(100vw - 140px);
+  width: calc(100vw - 210px);
   padding: 20px 70px 0 0;
 }
 
 .info-container .charts-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 65vw;
-  height: 70vh;
+  height: 65vh;
 }
 .info-container .charts-container .bar-chart {
   padding-bottom: 20px;
@@ -39,26 +51,44 @@
 .info-container .charts-container .chart-wrap {
   display: flex;
   flex-direction: row;
-  margin-top: 50px;
+  align-items: flex-end;
   min-height: 40%;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .info-container .nutrients-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  width: 20vw;
+  justify-content: space-between;
+  width: 200px;
+  height: 65vh;
+  margin-left: 25px;
 }
 .info-container .nutrients-container .nutrient-content {
   background-color: #f8f8f8;
-  width: 90%;
+  width: 150px;
   height: 100px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
 }
+.nutrient-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50px;
+}
+.nutrient-info .nutrient-name {
+  font-weight: bold;
+}
+/*
+*
+*
+nutrient-info'>
+                    <span className="nutrient-name">{nutrient.value}{nutrient.units}</span>
+                    <span className='font-grey'>{nutrient.label}</span>
+*/
 .info-container .nutrients-container .nutrient-content .icon-container {
   display: flex;
   justify-content: center;

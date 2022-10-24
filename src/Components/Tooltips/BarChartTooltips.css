@@ -1,0 +1,22 @@
+.simplebarcharttooltip-wrapper {
+    height: 80px;
+    width: 50px;
+    background-color: #e60000;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .simplebarcharttooltip-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .simplebarcharttooltip-content_item {
+    font-weight: 500;
+    font-size: 10px;
+    color: white;
+  }

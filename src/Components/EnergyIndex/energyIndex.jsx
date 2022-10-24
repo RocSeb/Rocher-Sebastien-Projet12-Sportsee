@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 
 
 const EnergyIndex = ({value, dataLabel}) => {
-    console.log(value, "<==data")
     const nutrients = [
             {   
                 id: 'calorieCount',
@@ -42,12 +41,12 @@ const EnergyIndex = ({value, dataLabel}) => {
     return nutrients.map(nutrient => 
         nutrient.id === dataLabel ? 
         (
-            <div className='nutrient-content'>
+            <div className='nutrient-content' key={value}>
                 <div className={`icon-container ${nutrient.background}`}>
                     <img src={nutrient.icon} />
                 </div>
                 <div className='nutrient-info'>
-                    <h1>{nutrient.value}{nutrient.units}</h1>
+                    <span className="nutrient-name">{nutrient.value}{nutrient.units}</span>
                     <span className='font-grey'>{nutrient.label}</span>
                 </div>
             </div>

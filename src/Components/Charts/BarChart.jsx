@@ -9,8 +9,18 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+import BarChartTooltips from '../Tooltips/BarChartTooltips'
 import PropTypes from 'prop-types'
 
+
+/**
+ * Display BarCharts component
+ * @function BarCharts
+ * @param {object} props.data
+ * @param {array} session
+ * @param {number} userId
+ * @returns {Reactnode} jsx injected in DOM
+ */
 const BarCharts = ({data}) => {
   const formatDay = (day) => {
     return day.slice(-1);
@@ -46,8 +56,12 @@ const BarCharts = ({data}) => {
           iconType="circle"
           height={100}
         />
-        <Tooltip />
-
+        <Tooltip
+          content={<BarChartTooltips />}
+          cursor={{
+            opacity: 0.5,
+          }}
+        />
         <Bar
           name="Poids (kg)"
           dataKey="kilogram"

@@ -4,9 +4,16 @@ import { LineChart, Line, XAxis } from "recharts";
 import PropTypes from 'prop-types';
 
 
-
+/**
+ * Display LineCharts component
+ * @function LineCharts
+ * @param {object} props.data
+ * @param {array} session
+ * @param {string} day
+ * @param {number} userId
+ * @returns {Reactnode} jsx injected in DOM
+ */
 const LineCharts = ({data}) => {
-
   const formatDay = (day) => {
     const weekDay = new Array(7);
     weekDay[1] = "L"
