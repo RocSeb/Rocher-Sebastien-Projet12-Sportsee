@@ -3,7 +3,14 @@ import React from "react";
 import { ResponsiveContainer, RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
 import PropTypes from 'prop-types';
 
-
+/**
+ * Display RadialCharts component
+ * @function RadialCharts
+ * @param {object} props.data
+ * @param {number} todayScore
+ * @param {number} userId
+ * @returns {Reactnode} jsx injected in DOM
+ */
 const RadialCharts = ({data}) => {
   const dataConverted = [
     {

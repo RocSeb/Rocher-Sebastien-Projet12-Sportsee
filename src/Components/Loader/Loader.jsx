@@ -1,6 +1,12 @@
 import React from 'react';
 import './loader.css';
 
+/**
+ * Display Loader component
+ * @function Loader
+ * @returns {Reactnode} jsx injected in DOM
+ */
+
 const Loader = () => {
     
   return (

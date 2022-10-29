@@ -9,6 +9,19 @@ import useFetch from '../utils/fetchAPI';
 import EnergyIndex from '../Components/EnergyIndex/energyIndex';
 import Loader from '../Components/Loader/Loader'
 
+
+/**
+ * Display App component
+ * @function App
+ * @param {number} userId
+ * @param {Object} data
+ * @param {Object} averageData
+ * @param {Object} performanceData
+ * @param {Object} activityData
+ * @param {boolean} isLoading
+ * @param {boolean} error
+ * @returns {Reactnode} jsx injected in DOM
+ */
 const App = () => {
 
   const { id: userId } = useParams(':id')

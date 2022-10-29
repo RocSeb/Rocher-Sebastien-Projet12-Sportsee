@@ -1,6 +1,6 @@
 import "./lineChart.css";
 import * as React from "react";
-import { LineChart, Line, XAxis } from "recharts";
+import { LineChart, Line, XAxis, Tooltip } from "recharts";
 import PropTypes from 'prop-types';
 
 
@@ -32,10 +32,36 @@ const LineCharts = ({data}) => {
       <LineChart width={200} height={150} data={data.sessions}>
         <Line type="monotone" dataKey="sessionLength" stroke="#fff" strokeWidth={2} />
         <XAxis dataKey="day" axisLine={false} stroke="#fff" tickLine={false} tickFormatter={formatDay} />
+        <Tooltip
+          content={<CustomTooltip />}
+          cursor={{ stroke: 'rgba(255,255,255, 0.6)' }}
+        />
       </LineChart>
     </div>
   );
 }
+
+/**
+ * Render CustomTooltip component
+ * @function CustomTooltip
+ * @param {boolean} props.active > hover ? y/n
+ * @param {array} props.payload > data to display
+ * @returns {Reactnode} JSX injected in DOM
+ */
+ function CustomTooltip({ active, payload }) {
+  if (active && payload) {
+    return (
+      <span className="custom-tooltip">{`${payload[0].value} min`}</span>
+    );
+  }
+  return null;
+}
+
+CustomTooltip.propTypes = {
+  active: PropTypes.bool,
+  payload: PropTypes.array,
+};
+
 LineCharts.propTypes = {
   data: PropTypes.object.isRequired,
 }

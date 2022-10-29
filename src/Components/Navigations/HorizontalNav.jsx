@@ -1,6 +1,11 @@
 import React from 'react';
 import './horizontalNav.css';
 
+/**
+ * Display HorizontalNavigation component
+ * @function HorizontalNavigation
+ * @returns {Reactnode} jsx injected in DOM
+ */
 const HorizontalNavigation = () => {
   return (
     <nav className='nav-container'>

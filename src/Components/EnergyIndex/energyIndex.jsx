@@ -1,7 +1,14 @@
 import React from "react";
 import PropTypes from 'prop-types'
 
-
+/**
+ * Display EnergyIndex component
+ * @function EnergyIndex
+ * @param {string} props.dataLabel
+ * @param {number} props.value
+ * @param {number} userId
+ * @returns {Reactnode} jsx injected in DOM
+ */
 const EnergyIndex = ({value, dataLabel}) => {
     const nutrients = [
             {   

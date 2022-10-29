@@ -1,6 +1,11 @@
 import React from 'react';
 import './verticalNav.css';
 
+/**
+ * Display VerticalNavigation component
+ * @function VerticalNavigation
+ * @returns {Reactnode} jsx injected in DOM
+ */
 const VerticalNavigation = () => {
   return (
     <nav className='category-nav'>

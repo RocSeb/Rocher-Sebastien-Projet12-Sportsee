@@ -1,6 +1,12 @@
 import './SelectUser.css';
 import React from 'react';
 
+/**
+ * Display SelectUser component
+ * @function SelectUser
+ * @returns {Reactnode} jsx injected in DOM
+ */
+
 const SelectUser = () => {
     return (
         <section className='user-container'>

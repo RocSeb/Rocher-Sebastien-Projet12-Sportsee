@@ -9,6 +9,17 @@ import {
 } from "recharts";
 import PropTypes from "prop-types";
 
+/**
+ * Display RadarCharts component
+ * @function RadarCharts
+ * @param {object} props.data
+ * @param {array} data
+ * @param {number} value
+ * @param {object} kind
+ * @param {number} userId
+ * @returns {Reactnode} jsx injected in DOM
+ */
+
 const RadarCharts = ({data}) => {
 
   const formatKind = (number) => {
