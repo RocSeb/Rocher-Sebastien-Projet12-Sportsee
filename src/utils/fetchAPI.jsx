@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const mockupMode = false
+const mockupMode = false  // Set "false" to launch with the API data, Set "true" to launch with the dataMocked json file
 
 const UseFetch = (userId) => {
 
