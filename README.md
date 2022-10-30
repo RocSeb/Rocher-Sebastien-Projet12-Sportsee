@@ -6,7 +6,7 @@
 - [Recharts (**version 2.1.13**)](https://recharts.org/en-US/guide/installation)
 - [Visual studio Code](https://code.visualstudio.com/)
 
-### 2.2 Launching the project
+### Installin and launching back-end
 
 - Fork the followed [repository](https://github.com/RocSeb/P9-front-end-dashboard/)
 - Clone it on your computer.
