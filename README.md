@@ -1,6 +1,6 @@
 
 ### Prerequisites
-
+- [react (**version 18.2.0**)] (https://fr.reactjs.org/)
 - [NodeJS (**version 16.15.1**)](https://nodejs.org/en/)
 - [npm](https://www.npmjs.com/)
 - [Recharts (**version 2.1.13**)](https://recharts.org/en-US/guide/installation)
