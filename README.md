@@ -21,8 +21,8 @@ Clone the repository of _SportSee_ front-end:
 
 Inside this front-end repository, install dependencies:
 
-`npm install`
-`npm install recharts`
+-`npm install`
+-`npm install recharts`
 
 Launch front-end on port 3001:
 
